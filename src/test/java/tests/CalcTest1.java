@@ -39,6 +39,18 @@ public class CalcTest1 {
         assertEquals("1", driver.findElement(By.cssSelector("#cwos")).getText());
     }
 
+    @Test
+    public void test2() {
+        driver.get("https://google.com");
+        driver.findElement(By.cssSelector("input.gLFyf.gsfi")).sendKeys("Калькулятор", Keys.ENTER);
+        driver.findElement(By.cssSelector("div[jsname='abcgof']")).click();
+        driver.findElement(By.cssSelector("div[aria-label*='делен']")).click();
+        driver.findElement(By.cssSelector("div[jsname='bkEvMb']")).click();
+        driver.findElement(By.cssSelector("div[aria-label*='равно']")).click();
+        assertEquals("6 ÷ 0 =", driver.findElement(By.cssSelector("span[jsname='ubtiRe']")).getText());
+        assertEquals("Infinity", driver.findElement(By.cssSelector("#cwos")).getText());
+    }
+
     @AfterAll
     public static void teardown() {
         driver.quit();
