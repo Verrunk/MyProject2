@@ -51,6 +51,16 @@ public class CalcTest1 {
         assertEquals("Infinity", driver.findElement(By.cssSelector("#cwos")).getText());
     }
 
+    @Test
+    public void test3() {
+        driver.get("https://google.com");
+        driver.findElement(By.cssSelector("input.gLFyf.gsfi")).sendKeys("Калькулятор", Keys.ENTER);
+        driver.findElement(By.cssSelector("div[aria-label*='синус']")).click();
+        driver.findElement(By.cssSelector("div[aria-label*='равно']")).click();
+        assertEquals("sin() =", driver.findElement(By.cssSelector("span[jsname='ubtiRe']")).getText());
+        assertEquals("Error", driver.findElement(By.cssSelector("#cwos")).getText());
+    }
+
     @AfterAll
     public static void teardown() {
         driver.quit();
